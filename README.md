@@ -45,7 +45,6 @@ Once the dependencies are installed, start the development server:
 
 Your development server will now be running at [http://localhost:3000](http://localhost:3000)
 
-
 ## Thank You
 
 Thank you for exploring this repository! Your interest and support mean a lot. I hope this project provides value to you. If you find it useful, feel free to explore the code, report issues, or contribute!
