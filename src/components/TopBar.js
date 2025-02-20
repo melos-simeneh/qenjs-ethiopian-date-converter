@@ -15,8 +15,9 @@ const TopBar = ({ setActiveMenu, MENU_ITEMS }) => {
     <header className="bg-color1 p-4">
       <nav className="max-w-7xl mx-auto flex justify-between items-center">
         {/* Logo or Brand */}
-        <div className="text-white text-lg font-bold">
-          QENJS - Ethiopian Date Converter
+        <div className="text-white ">
+          <span className="text-2xl font-bold">QENJS</span>
+          <span className="text-lg font-bold"> - Ethiopian Date Converter</span>
         </div>
 
         {/* Menu */}

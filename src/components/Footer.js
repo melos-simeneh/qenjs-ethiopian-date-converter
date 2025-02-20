@@ -1,6 +1,7 @@
 import React from "react";
 import { FaGithub, FaLinkedin } from "react-icons/fa";
 import { FaRegHandshake } from "react-icons/fa"; // Import Upwork icon
+import { FaSquareUpwork, FaUpwork } from "react-icons/fa6";
 
 const Footer = () => {
   return (
@@ -13,7 +14,7 @@ const Footer = () => {
 
           <div className="flex items-center space-x-8">
             <a
-              href="https://github.com/melos-simeneh/your-repository"
+              href="https://github.com/melos-simeneh/qenjs-ethiopian-date-converter"
               className="flex items-center text-gray-400 hover:text-blue-800 transition-colors duration-300 text-sm space-x-2"
               target="_blank"
               rel="noopener noreferrer"
@@ -24,7 +25,7 @@ const Footer = () => {
             </a>
 
             <a
-              href="https://www.linkedin.com/in/melos"
+              href="https://www.linkedin.com/in/melos/"
               className="flex items-center text-gray-400 hover:text-blue-800 transition-colors duration-300 space-x-2"
               target="_blank"
               rel="noopener noreferrer"
@@ -41,7 +42,7 @@ const Footer = () => {
               rel="noopener noreferrer"
               aria-label="Visit my Upwork profile"
             >
-              <FaRegHandshake />
+              <FaSquareUpwork />
               <span>Upwork</span>
             </a>
           </div>

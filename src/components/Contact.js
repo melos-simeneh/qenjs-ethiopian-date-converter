@@ -1,13 +1,12 @@
 import {
   FaGithub,
   FaLinkedin,
-  FaRegHandshake,
   FaSearchengin,
   FaEnvelope,
   FaPhoneAlt,
 } from "react-icons/fa";
+import { FaUpwork } from "react-icons/fa6";
 
-// components/Contact.js
 export default function Contact() {
   return (
     <div className="w-full max-w-4xl mx-auto p-10 bg-white  border border-gray-200 relative">
@@ -16,7 +15,7 @@ export default function Contact() {
       </div>
       <p className="text-lg text-gray-600 mb-8 leading-relaxed pt-5">
         If you have any questions, suggestions, or feedback, feel free to reach
-        out to us. We are here to assist you with any concerns or inquiries you
+        out to me. I am here to assist you with any concerns or inquiries you
         may have.
       </p>
       <div className="space-y-6">
@@ -52,14 +51,14 @@ export default function Contact() {
         <div className="flex space-x-6 pl-10">
           <a
             href="https://github.com/melos-simeneh"
-            className="text-gray-600 hover:text-blue-500 transition-colors duration-200"
+            className="text-gray-600 hover:text-blue-800 transition-colors duration-200"
             aria-label="Visit my GitHub profile"
           >
             <FaGithub className="inline mr-2" aria-hidden="true" />
             GitHub
           </a>
           <a
-            href="https://linkedin.com/melos"
+            href="https://www.linkedin.com//in/melos"
             className="text-gray-600 hover:text-blue-800 transition-colors duration-200"
             aria-label="Visit my LinkedIn profile"
           >
@@ -71,7 +70,7 @@ export default function Contact() {
             className="text-gray-600 hover:text-blue-800 transition-colors duration-200"
             aria-label="Visit my Upwork profile"
           >
-            <FaRegHandshake className="inline mr-2" aria-hidden="true" />
+            <FaUpwork className="inline mr-2" aria-hidden="true" />
             Upwork
           </a>
         </div>
