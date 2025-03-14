@@ -20,7 +20,7 @@ export default function GregorianToEthiopian() {
       String(gregorianDate.day).padStart(2, "0"),
     ].join("-");
     const ethDate = qenjs.fromGregorianDate(formattedDate);
-    const dateString = ethDate.format("DDDD, MMMM dd YYYY");
+    const dateString = ethDate.format("DDDD, MMMM d YYYY");
     setGregorianConversionResult(`${dateString}`);
   };
 
