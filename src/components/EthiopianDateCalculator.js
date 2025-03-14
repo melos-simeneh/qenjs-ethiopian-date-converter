@@ -28,10 +28,10 @@ export default function EthiopianDateCalculator() {
     );
     if (operation == "add") {
       const addDaysResult = ethDate.addDays(dateCalculator.day);
-      // const addMonthResult = ethDate.addMonths(dateCalculator.month);
-      // const addYearResult = addMonthResult.addYears(dateCalculator.year);
-      const ethDateString = qenjs.format(addDaysResult, "DDDD, MMMM d YYYY");
-      const dateString = qenjs.format(addDaysResult.$d, "DDDD, MMMM dd, YYYY");
+      const addMonthResult = addDaysResult.addMonths(dateCalculator.month);
+      const addYearResult = addMonthResult.addYears(dateCalculator.year);
+      const ethDateString = qenjs.format(addYearResult, "DDDD, MMMM d YYYY");
+      const dateString = qenjs.format(addYearResult.$d, "DDDD, MMMM dd, YYYY");
       setCalculatorResult(dateString);
       setEthCalculatorResult(ethDateString);
     } else if (operation == "subtract") {

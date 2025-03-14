@@ -1,6 +1,7 @@
+import { gregorianMonths, getDays, validateYear } from "../utils/dateUtils";
 import qenjs from "qenjs";
-import { getDays, gregorianMonths, validateYear } from "../utils/dateUtils";
 import { useState } from "react";
+import { FaPlus, FaMinus } from "react-icons/fa"; // Import React Icons for Add (+) and Subtract (-)
 
 export default function GregorianDateCalculator() {
   const currentDate = new Date();
@@ -10,28 +11,44 @@ export default function GregorianDateCalculator() {
     month: currentDate.getMonth() + 1,
     year: currentDate.getFullYear(),
   });
-  const [gregorianConversionResult, setGregorianConversionResult] =
-    useState("");
+  const [dateCalculator, setDateCalculator] = useState({
+    day: 0,
+    month: 0,
+    year: 0,
+  });
+  const [calculatorResult, setCalculatorResult] = useState("");
+  const [operation, setOperation] = useState("add");
 
-  const handleGregorianToEthiopianConversion = () => {
-    const formattedDate = [
+  const handleDateCalculator = () => {
+    const greDate = qenjs.gregorian(
       gregorianDate.year,
-      String(gregorianDate.month).padStart(2, "0"),
-      String(gregorianDate.day).padStart(2, "0"),
-    ].join("-");
-    const ethDate = qenjs.fromGregorianDate(formattedDate);
-    const dateString = ethDate.format("DDDD, MMMM dd YYYY");
-    setGregorianConversionResult(`${dateString}`);
+      gregorianDate.month,
+      gregorianDate.day
+    );
+    console.log(greDate);
+    if (operation == "add") {
+      const addDaysResult = greDate.addDays(dateCalculator.day);
+      const addMonthResult = addDaysResult.addMonths(dateCalculator.month);
+      const addYearResult = addMonthResult.addYears(dateCalculator.year);
+      const dateString = qenjs.format(addYearResult.$d, "DDDD, MMMM dd, YYYY");
+      setCalculatorResult(dateString);
+    } else if (operation == "subtract") {
+      const addDaysResult = greDate.subtractDays(dateCalculator.day);
+      const addMonthResult = addDaysResult.subtractMonths(dateCalculator.month);
+      const addYearResult = addMonthResult.subtractYears(dateCalculator.year);
+      const dateString = qenjs.format(addYearResult.$d, "DDDD, MMMM dd, YYYY");
+      setCalculatorResult(dateString);
+    }
   };
 
   return (
     <div className="w-1/2 p-6 bg-white border flex flex-col items-center relative">
       <div className="absolute top-0 left-0 right-0 py-2 text-center bg-gray-200">
         <h2 className="font-bold text-slate-600">
-          Gregorian Date Calculator: Add or Subtract
+          Ethiopian Date Calculator: Add or Subtract
         </h2>
       </div>
-      <div className="space-y-4 pt-14 pb-16">
+      <div className="space-y-4 pt-8 pb-20">
         <div className="flex space-x-4 justify-center items-center">
           <div className="w-1/8">
             <label className="block text-sm font-medium">Day</label>
@@ -52,7 +69,7 @@ export default function GregorianDateCalculator() {
               ))}
             </select>
           </div>
-          <div className="w-1/3">
+          <div className="w-1/2.5">
             <label className="block text-sm font-medium">Month</label>
             <select
               className="w-full p-3 h-12 border rounded-md"
@@ -85,23 +102,101 @@ export default function GregorianDateCalculator() {
               }
             />
           </div>
+        </div>
+
+        {/* Add/Subtract select dropdown with icons */}
+        <div className="flex justify-center items-center mt-4">
+          <div className="w-1/9">
+            <select
+              className="border rounded px-2 py-1"
+              value={operation}
+              onChange={(e) => setOperation(e.target.value)}
+            >
+              <option value="add">+</option>
+              <option value="subtract">-</option>
+            </select>
+          </div>
+        </div>
+
+        <div className="space-y-4">
+          <div className="flex  space-x-4 justify-center items-center">
+            {/* Day Input */}
+            <div className="w-1/8">
+              <label className="block text-sm font-medium">Day</label>
+              <input
+                type="number"
+                className="w-full p-3 h-12 border rounded-md"
+                value={dateCalculator.day}
+                min={0}
+                max={1000}
+                onChange={(e) =>
+                  setDateCalculator({
+                    ...dateCalculator,
+                    day: Number(e.target.value),
+                  })
+                }
+              />
+            </div>
+
+            {/* Month Input */}
+            <div className="w-1/8">
+              <label className="block text-sm font-medium">Month</label>
+              <input
+                type="number"
+                className="w-full p-3 h-12 border rounded-md"
+                value={dateCalculator.month}
+                min={0}
+                max={100}
+                onChange={(e) =>
+                  setDateCalculator({
+                    ...dateCalculator,
+                    month: Number(e.target.value),
+                  })
+                }
+              />
+            </div>
+
+            {/* Year Input */}
+            <div className="w-1/8">
+              <label className="block text-sm font-medium">Year</label>
+              <input
+                type="number"
+                className="w-full p-3 h-12 border rounded-md"
+                value={dateCalculator.year}
+                min={0}
+                max={50}
+                onChange={(e) =>
+                  setDateCalculator({
+                    ...dateCalculator,
+                    year: Number(e.target.value),
+                  })
+                }
+              />
+            </div>
+          </div>
+        </div>
+
+        {/* Calculate Button */}
+        <div className="flex justify-center items-center mt-4">
           <button
-            onClick={handleGregorianToEthiopianConversion}
-            className="p-3 mt-5 bg-color1 text-white rounded-md"
+            onClick={handleDateCalculator}
+            className="p-3 bg-color1 text-white rounded-md"
           >
-            Convert
+            Calculate
           </button>
         </div>
-        {gregorianConversionResult && (
+
+        {/* Display Result */}
+        {calculatorResult && (
           <div
             className="absolute left-0 right-0 text-center text-green-600 text-2xl"
             style={{
-              opacity: gregorianConversionResult ? 1 : 0,
-              visibility: gregorianConversionResult ? "visible" : "hidden",
+              opacity: calculatorResult ? 1 : 0,
+              visibility: calculatorResult ? "visible" : "hidden",
               transition: "opacity 0.3s ease, visibility 0.3s ease",
             }}
           >
-            {gregorianConversionResult}
+            {calculatorResult}
           </div>
         )}
       </div>
