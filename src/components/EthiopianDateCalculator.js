@@ -1,5 +1,5 @@
 import { ethiopianMonths, getDays, validateYear } from "../utils/dateUtils";
-import qenjs from "qenjs";
+import qenjs from "qenjs.js";
 import { useState } from "react";
 import { FaPlus, FaMinus } from "react-icons/fa"; // Import React Icons for Add (+) and Subtract (-)
 

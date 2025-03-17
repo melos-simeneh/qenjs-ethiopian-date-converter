@@ -1,4 +1,4 @@
-import qenjs from "qenjs";
+import qenjs from "qenjs.js";
 import { useState } from "react";
 import { ethiopianMonths, getDays, validateYear } from "../utils/dateUtils";
 

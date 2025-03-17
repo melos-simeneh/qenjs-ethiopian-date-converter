@@ -1,4 +1,4 @@
-import qenjs from "qenjs";
+import qenjs from "qenjs.js";
 import { getDays, gregorianMonths, validateYear } from "../utils/dateUtils";
 import { useState } from "react";
 

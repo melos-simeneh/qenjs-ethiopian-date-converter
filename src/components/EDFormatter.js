@@ -1,5 +1,5 @@
 import { ethiopianMonths, getDays, validateYear } from "../utils/dateUtils";
-import qenjs from "qenjs";
+import qenjs from "qenjs.js";
 import { useState } from "react";
 
 export default function EDFormatter() {
