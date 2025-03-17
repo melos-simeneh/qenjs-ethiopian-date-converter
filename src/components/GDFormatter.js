@@ -15,7 +15,12 @@ export default function GDFormatter() {
   const [formatResult, setFormatResult] = useState("");
 
   const handleDateFormatter = () => {
-    const dateString = qenjs.format(currentDate, format);
+    const formattedDate = [
+      gregorianDate.year,
+      String(gregorianDate.month).padStart(2, "0"),
+      String(gregorianDate.day).padStart(2, "0"),
+    ].join("-");
+    const dateString = qenjs.format(new Date(formattedDate), format);
     setFormatResult(dateString);
   };
 
@@ -95,7 +100,7 @@ export default function GDFormatter() {
         <div className="flex justify-center items-center mt-4">
           <button
             onClick={handleDateFormatter}
-            className="p-3 bg-color1 text-white rounded-md"
+            className="p-3 bg-color-1 text-white rounded-md"
           >
             Format
           </button>

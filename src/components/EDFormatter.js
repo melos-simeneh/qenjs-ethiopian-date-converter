@@ -15,9 +15,9 @@ export default function EDFormatter() {
 
   const handleFormatter = () => {
     const ethDate = qenjs(
-      curr_eth_date.Year,
-      curr_eth_date.Month,
-      curr_eth_date.Day
+      ethiopianDate.year,
+      ethiopianDate.month,
+      ethiopianDate.day
     );
     setFormatResult(ethDate.format(format));
   };
@@ -100,7 +100,7 @@ export default function EDFormatter() {
         <div className="flex justify-center items-center mt-4">
           <button
             onClick={handleFormatter}
-            className="p-3 bg-color1 text-white rounded-md"
+            className="p-3 bg-color-1 text-white rounded-md"
           >
             Format
           </button>

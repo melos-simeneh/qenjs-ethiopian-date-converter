@@ -186,7 +186,7 @@ export default function EthiopianDateCalculator() {
         <div className="flex justify-center items-center mt-4">
           <button
             onClick={handleDateCalculator}
-            className="p-3 bg-color1 text-white rounded-md"
+            className="p-3 bg-color-1 text-white rounded-md"
           >
             Calculate
           </button>

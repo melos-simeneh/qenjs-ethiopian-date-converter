@@ -85,7 +85,7 @@ export default function GregorianToEthiopian() {
           </div>
           <button
             onClick={handleGregorianToEthiopianConversion}
-            className="p-3 mt-5 bg-color1 text-white rounded-md"
+            className="p-3 mt-5 bg-color-1 text-white rounded-md"
           >
             Convert
           </button>

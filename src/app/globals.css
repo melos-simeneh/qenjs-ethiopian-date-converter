@@ -20,6 +20,15 @@ body {
   font-family: Arial, Helvetica, sans-serif;
 }
 
-.bg-color1{
+.bg-color-1{
   background-color: #004461;
 }
+
+.bg-color-2{
+  background-color: #13526d;
+}
+
+.bg-color-3{
+  background-color: #26789b;
+}
+
